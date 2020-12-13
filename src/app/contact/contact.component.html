@@ -1,0 +1,45 @@
+<div id="contactTitle">
+    <h1 id="mainTitleContact">Get in touch with us</h1>
+    <h2 id="subHeadingContact">Fill the form and we will get back to you ASAP<br>
+        We’d love to know what you're up to so we can figure out how we can help.</h2>
+</div>
+
+<section id="formSection">
+    <!--It's important to especify the ".value" of the form on submit-->
+    <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
+        <div class="formControl">
+            <label>First Name*</label><br>
+            <!-- Using "#" in a tag can help you create a 'template variable'. In the example below, "ngModel" becomes the value of the variable.-->
+            <input type="text" ngModel name="firstName" #firstName="ngModel" required class="inputStyle"><br>
+            <span class="formError" *ngIf="firstName.touched && !firstName.valid" >First name is required</span>
+        </div>
+
+        <div class="formControl">
+            <label>Last Name*</label><br>
+            <input type="text" ngModel name="lastName" #lastName="ngModel" required class="inputStyle"><br>
+            <span class="formError" *ngIf="lastName.touched && !lastName.valid" >Last name is required</span> 
+        </div>
+
+        <div class="formControl">
+            <label>Phone Number*</label><br>
+            <input type="text" ngModel name="phone" #phone="ngModel" required class="inputStyle"><br>
+            <span class="formError" *ngIf="phone.touched && !phone.valid" >Phone number is required</span>
+        </div>
+
+        <div class="formControl">
+            <label>Email*</label><br>
+            <input type="text" ngModel name="email" #email="ngModel" required class="inputStyle"><br>
+            <span class="formError" *ngIf="email.touched && !email.valid" >Email is required</span>
+        </div>
+
+        <div class="formControl">
+            <label>Company Name</label><br>
+            <input type="text" ngModel name="companyName" #companyName="ngModel" class="inputStyle"><br>
+        </div>
+        
+        <div>
+            <button id="submit"  type="submit" [disabled]="!form.valid">Submit</button>
+        </div>
+    </form>
+</section>
+

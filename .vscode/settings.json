@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/37671c81-bf82-456e-a6f1-844f11c8e8df/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/bricenowebconsulting",
+    "appService.deploySubpath": "."
+}

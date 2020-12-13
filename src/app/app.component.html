@@ -1,0 +1,31 @@
+<header>
+  <a href=""><img id="logo" src="../assets/logo1.svg"></a>
+  <nav>
+    <ul>
+      <li><a id="red" [routerLink]="['/home']">Home</a></li>
+      <li><a id="green" [routerLink]="['/contact']">Contact</a></li>
+      <li><a id="yellow" [routerLink]="['/about']">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section [@routeAnimations]="prepareRoute(outlet)" id="content">
+  <router-outlet  (activate)="onActivate($event)" #outlet="outlet"></router-outlet>
+</section>
+
+<footer>
+  <p>Jesús Briceño - Web Developer<br>
+  Argentina - 2020 <br>
+  <a href="https://www.linkedin.com/in/jes%C3%BAs-eduardo-brice%C3%B1o-pinto-8b9b29b7/" target="_blank">Linkedin <img src="../assets/LI-In-Bug.png" width="24px"> </a></p>  
+  <div (click)="scrollToTop()" *ngIf="pageYoffset > 0">Back to the top</div>
+</footer>
+
+<!-- 
+
+  cd C:/Users/Jesús/Desktop/personalWebsite/personalWebsite
+
+  https://script.google.com/macros/s/AKfycbxxUpC3XVOgkRtdI0BnfsudyGWf8evbC7wXcwsV9FzRLJBF7MI_/exec
+
+  https://script.google.com/macros/s/AKfycbyMBenPkdu7GA5tRK4aRaH213Bpm0YRWwuc9gusfTvz/dev
+
+-->
