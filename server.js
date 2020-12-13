@@ -14,9 +14,9 @@ app.post('/form', (req, res) => {
     res.status(200).send();
 })
 
-app.use(express.static(__dirname+'/dist/ng-blog'));
+app.use(express.static(__dirname+'/src'));
 app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname+'/dist/ng-blog/index.html'));
+    res.sendFile(path.join(__dirname+'/src/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
