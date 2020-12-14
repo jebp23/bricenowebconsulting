@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const configEmail = require('./emailConfig/emailConfig');
 const path = require('path');
 
@@ -6,6 +7,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 app.post('/form', (req, res) => {  
     configEmail(req.body);
