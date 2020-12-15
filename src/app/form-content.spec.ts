@@ -1,4 +1,4 @@
-import { FormContent } from './formContent';
+import { FormContent } from './form-content';
 
 describe('FormContent', () => {
   it('should create an instance', () => {

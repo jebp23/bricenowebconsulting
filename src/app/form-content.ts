@@ -3,7 +3,5 @@ export class FormContent {
     lastName: string;
     phone: number;
     email: string;
-    emailcompanyName: string;
-    
-
+    emailcompanyName: string;  
 }
