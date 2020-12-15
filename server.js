@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.post('/form', (req, res) => {  
+app.post('/contactForm', (req, res) => {  
     configEmail(req.body);
     res.status(200).send();
 })
