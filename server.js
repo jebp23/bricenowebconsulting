@@ -35,7 +35,7 @@ function configEmail(form){
     });
     
     const mailOptions = {
-        from: 'Briceño Web Consulting <jebp2389@gmail.com>',
+        from: 'Briceño Web Consulting <bricenowebconsulting@aol.com>',
         to: form.email,
         subject: `Hello ${form.firstName}, we're your future associates!`,
         html: `
