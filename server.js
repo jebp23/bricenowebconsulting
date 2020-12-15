@@ -26,7 +26,7 @@ app.listen(process.env.PORT || 8080);
 
 
 
-/*
+
 function configEmail(form){
 
     var transporter = nodemailer.createTransport({
@@ -125,4 +125,3 @@ function configEmail(form){
         console.log(info);
         });
 }
-*/
