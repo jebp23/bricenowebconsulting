@@ -10,7 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/contactForm', (req, res) => {  
-    configEmail(req.body);
+    var formResponse = req.body;
+    configEmail(formResponse);
     res.status(200).send();
 })
 
