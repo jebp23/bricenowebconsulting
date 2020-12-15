@@ -8,6 +8,6 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
   
   sendMessage(body) {
-    return this._http.post('http://localhost:8080/', body);
+    return this._http.post('/contact/contactForm', body);
   }
 }
