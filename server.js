@@ -15,7 +15,7 @@ app.post('/contactForm', (req, res) => {
     res.status(200).send();
 })
 
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/dist";
 app.use(express.static(distDir));
 
 app.get('/*', function(req,res){
@@ -26,7 +26,7 @@ app.listen(process.env.PORT || 8080);
 
 
 
-
+/*
 function configEmail(form){
 
     var transporter = nodemailer.createTransport({
@@ -125,3 +125,4 @@ function configEmail(form){
         console.log(info);
         });
 }
+*/
