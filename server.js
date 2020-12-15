@@ -10,13 +10,16 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/contactForm', (req, res) => {  
-    configEmail(req.body);
+    var formResponse = req.body;
+    configEmail(formResponse);
     res.status(200).send();
 })
 
-app.use(express.static(__dirname+'/dist/personalWebsite'));
-app.get('/*', function(req,res){
-    res.sendFile(path.join(__dirname+'/dist/personalWebsite/index.html'));
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
+app.get('/', function(req,res){
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
