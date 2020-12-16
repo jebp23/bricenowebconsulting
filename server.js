@@ -15,7 +15,7 @@ app.post('/contactForm', (req, res) => {
     var formResponse = req.body;  
     console.log(formResponse);
 
-    function configEmail(formResponse){
+    function configEmail(){
 
         var transporter = nodemailer.createTransport({
             service: 'AOL',
@@ -114,7 +114,7 @@ app.post('/contactForm', (req, res) => {
             });
     }
 
-    configEmail();
+    configEmail(formResponse);
     res.status(200).send();
 })
 
