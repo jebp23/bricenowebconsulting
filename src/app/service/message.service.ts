@@ -8,7 +8,7 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
   
   sendMessage(body) {
-    return this._http.post('process.env.PORT/contactForm || 8080/contactForm', body);
+    return this._http.post('https://bricenowebconsulting.herokuapp.com/contactForm', body);
   }
 }
 
