@@ -9,6 +9,6 @@ export class MessageService {
   
   sendMessage(body:Email) {
 
-    return this._http.post('8080/contactForm', body);
+    return this._http.post('/contactForm', body);
   }
 }
