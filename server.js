@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const emailConfig = require('')
+const emailConfig = require('./emailConfig');
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -9,8 +9,9 @@ app.use(express.json());
 app.use(cors());
 
 
-app.post('/contactForm', (req, res) => {    
-    emailConfig()
+app.post('/form', (req, res) => {
+    emailConfig(req.body);
+    res.status(200).send();
 })
 
 var distDir = __dirname + "/dist";
