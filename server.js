@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const emailConfig = require('./emailConfig');
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -10,7 +9,7 @@ app.use(cors());
 
 
 app.post('/form', (req, res) => {
-    
+
     function emailConfig (form){
         var transporter = nodemailer.createTransport({
             service: 'AOL',
