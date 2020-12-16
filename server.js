@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.post('/form', (req, res) => {
+app.post('/api/form', (req, res) => {
 
     function emailConfig (form){
         var transporter = nodemailer.createTransport({
