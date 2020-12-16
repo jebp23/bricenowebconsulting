@@ -13,6 +13,7 @@ app.post('/contactForm', (req, res) => {
     var formResponse = req.body;
     configEmail(formResponse);
     res.status(200).send();
+    console.log(formResponse);
 })
 
 var distDir = __dirname + "/dist";
