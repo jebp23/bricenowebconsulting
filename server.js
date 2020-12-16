@@ -12,9 +12,6 @@ app.use(cors());
 
 app.post('/contactForm', (req, res) => {  
     
-    var formResponse = req.body;  
-    console.log(formResponse);
-
     function configEmail(){
 
         var transporter = nodemailer.createTransport({
@@ -114,7 +111,8 @@ app.post('/contactForm', (req, res) => {
             });
     }
 
-    configEmail(formResponse);
+    console.log(req.body);
+    configEmail(req.body)
     res.status(200).send();
 })
 
