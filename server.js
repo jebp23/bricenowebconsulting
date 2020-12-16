@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
 
@@ -7,7 +6,6 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
 
 app.post('/contactForm', (req, res) => {  
     var formResponse = req.body;
