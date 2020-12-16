@@ -9,6 +9,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+app.use(function(req, res, next) {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://apis.google.com");
+    return next();
+});
+
 app.post('/contactForm', (req, res) => {  
     
     var formResponse = req.body;  
