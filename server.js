@@ -10,6 +10,7 @@ app.use(cors());
 
 
 app.post('/form', (req, res) => {
+    
     function emailConfig (form){
         var transporter = nodemailer.createTransport({
             service: 'AOL',
