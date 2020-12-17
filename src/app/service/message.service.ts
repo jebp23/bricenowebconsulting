@@ -11,6 +11,6 @@ export class MessageService {
   
   sendMessage(newEmail:Email) {
 
-    return this._http.post('https://bricenowebconsulting.herokuapp.com' + this.contactFormUrl, newEmail);
+    return this._http.post(this.contactFormUrl, newEmail);
   }
 }
