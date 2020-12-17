@@ -8,6 +8,6 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
   
   sendMessage(body) {
-    return this._http.post('https://bricenowebconsulting.herokuapp.com/form', body);
+    return this._http.post('/form', body);
   }
 }
