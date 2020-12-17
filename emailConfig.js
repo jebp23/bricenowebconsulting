@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 
 module.exports = (form) => {
+
 var transporter = nodemailer.createTransport({
     service: 'AOL',
     auth: {
@@ -8,7 +9,6 @@ var transporter = nodemailer.createTransport({
         pass: '2020baires'
     }
 });
-
 
 const mailOptions = {
     from: 'Briceño Web Consulting <jebp2389@gmail.com>',
