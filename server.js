@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const emailConfig = require('./emailConfig');
 const path = require('path');
 
@@ -8,7 +7,6 @@ const app = express();
 //Body Parser/Cors Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
 
 //Endpoint
 app.post('/form', (req, res) => {
