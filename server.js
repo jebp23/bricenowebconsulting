@@ -1,5 +1,4 @@
 const express = require('express');
-const emailConfig = require('./emailConfig');
 const path = require('path');
 
 const app = express();
@@ -10,9 +9,32 @@ app.use(express.json());
 
 //Endpoint
 app.post('/form', (req, res) => {
-    emailConfig(req.body);
-    res.status(200).send();
-})
+    let transporter = nodeMailer.createTransport({
+        service: 'AOL',
+        auth: {
+            user: 'bricenowebconsulting@aol.com',
+            pass: '2020baires'
+        }
+    });
+
+    let mailOptions = {
+        from: 'Briceño Web Consulting <jebp2389@gmail.com>',
+        to: req.body.email,
+        subject: `Hello ${req.body.firstName}, we're your future associates!`,,
+        html : { path: './email.html' }
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+    });
+    res.writeHead(301, { Location: 'index.html' });
+    res.end();
+  });
+
+
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{
