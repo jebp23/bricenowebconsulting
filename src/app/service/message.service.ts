@@ -5,10 +5,11 @@ import { Email } from '../models/email'
 @Injectable()
 
 export class MessageService {
+  private formUrl = '/api/form';
   
   constructor(private _http: HttpClient) { }
   
   sendMessage(body: Email) {
-    return this._http.post('https://bricenowebconsulting.herokuapp.com/form', body);
+    return this._http.post(this.formUrl, body);
   }
 }
