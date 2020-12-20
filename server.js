@@ -21,7 +21,7 @@ app.post('/form', (req, res) => {
     let mailOptions = {
         from: 'Briceño Web Consulting <jebp2389@gmail.com>',
         to: req.body.email,
-        subject: `Hello ${req.body.firstName}, we're your future associates!`,,
+        subject: `Hello ${req.body.firstName}, we're your future associates!`,
         html : { path: './email.html' }
     };
 
@@ -32,13 +32,13 @@ app.post('/form', (req, res) => {
         console.log('Message %s sent: %s', info.messageId, info.response);
     });
 
-    res.end();
+    res.send();
   });
 
 
 
 //Server
-app.listen(process.env.PORT || 8080, ()=>{
+let server = app.listen(process.env.PORT || 8080, ()=>{
     let port = server.address().port;
     console.log("Server started at http://localhost:", port);
 });
