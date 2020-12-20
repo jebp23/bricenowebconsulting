@@ -1,12 +1,14 @@
 const express = require('express');
 const path = require('path');
-const nodeMailer = ('nodemailer');
+const nodeMailer = require('nodemailer');
+const cors = require('cors');
 
 const app = express();
 
 //Body Parser/Cors Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 //Endpoint
 app.post('/form', (req, res) => {
@@ -44,5 +46,5 @@ app.listen(process.env.PORT || 8080, ()=>{
 });
 
 //Angular project file routing
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "/dist";
 app.use(express.static(distDir));
