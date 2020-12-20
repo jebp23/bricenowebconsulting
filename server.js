@@ -46,5 +46,5 @@ app.listen(process.env.PORT || 8080, ()=>{
 });
 
 //Angular project file routing
-var distDir = __dirname + "/dist";
+var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
