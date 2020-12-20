@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
+const nodeMailer = ('nodemailer');
 
 const app = express();
 
 //Body Parser/Cors Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Endpoint
@@ -30,7 +31,7 @@ app.post('/form', (req, res) => {
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
     });
-    res.writeHead(301, { Location: 'index.html' });
+
     res.end();
   });
 
@@ -38,7 +39,8 @@ app.post('/form', (req, res) => {
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{
-    console.log('Server started...')
+    let port = server.address().port;
+    console.log("Server started at http://localhost:", port);
 });
 
 //Angular project file routing
