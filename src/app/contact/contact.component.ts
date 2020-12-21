@@ -11,9 +11,9 @@ export class ContactComponent implements OnInit {
 
   constructor(public _MessageService: MessageService) {}
 
-  submitForm() {
+  submitForm(form) {
     if(this.formTemplate.valid){
-      this._MessageService.sendMessage(this.formTemplate.value).subscribe(data => {
+      this._MessageService.sendMessage(form).subscribe(data => {
         console.log(data);
       });
     
