@@ -9,8 +9,7 @@ export class MessageService {
   
   constructor(private _http: HttpClient) { }
   
-  sendMessage(params): Observable<any> {
-    let body = JSON.stringify(params);
+  sendMessage(body): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type','application/json')
     return this._http.post<any>(this.formUrl, body, {headers});
   }

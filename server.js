@@ -15,17 +15,21 @@ app.use((req, res, next) => {
     next();
 });
 
+//Angular project file routing
+var distDir = __dirname + "/dist";
+app.use(express.static(distDir)); 
+app.all('*', (req, res) => {
+    res.status(200).sendFile(distDir+'/index.html')
+});
+
 //Endpoint
 app.post('/form', (req, res) => {
     emailConfig(req.body);
     res.status(200).send();
 })
 
+
 //Server
 app.listen(process.env.PORT || 8080, ()=>{
     console.log('Server started...');
 });
-
-//Angular project file routing
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
