@@ -10,6 +10,7 @@ export class MessageService {
   constructor(private _http: HttpClient) { }
   
   sendMessage(body): Observable<any> {
+    console.log(body);
     const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
