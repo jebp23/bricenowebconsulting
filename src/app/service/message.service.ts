@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Email } from '../models/email'
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Email } from '../models/email';
 
 @Injectable()
 
 export class MessageService {
-  private formUrl = '/api/form';
+  private formUrl = '/form';
   
   constructor(private _http: HttpClient) { }
   
-  sendMessage(body: Email /*Change 'body' to 'email'*/) {
-    //let body = JSON.stringify(email);
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-
-    return this._http.post(this.formUrl, body, {headers});
+  sendMessage(body): Observable<Email> {
+    return this._http.post<Email>(this.formUrl, body);
   }
 }
