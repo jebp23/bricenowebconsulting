@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 
 export class MessageService {
-  private formUrl = 'https://bricenowebconsulting.herokuapp.com/form';
+  private formUrl = 'contact/form';
   
   constructor(private _http: HttpClient) { }
   
