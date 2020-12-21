@@ -24,8 +24,8 @@ app.all('*', (req, res) => {
 
 //Endpoint
 app.post('/form', (req, res) => {
-    emailConfig(req.body);
-    res.status(200).send();
+    response = emailConfig(req.body);
+    res.status(200).send(response);
 })
 
 
