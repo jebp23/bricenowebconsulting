@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 
 //Endpoint
 app.post('/form', (req, res) => {
-    console.log(req.body, 'data of form');
+    console.log(req.body);
 
     let transporter = nodeMailer.createTransport({
         service: 'AOL',
