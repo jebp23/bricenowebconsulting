@@ -11,11 +11,7 @@ export class MessageService {
   
   sendMessage(body): Observable<any> {
     console.log(body);
-    const httpOptions = {
-      headers: new HttpHeaders({
-          'Content-Type': 'application/x-www-form-urlencoded',
-      })
-  }
-    return this._http.post<any>(this.formUrl, body, httpOptions);
+    let headers = new HttpHeaders().set('Content-Type','application/json')
+    return this._http.post<any>(this.formUrl, body, {headers});
   }
 }
