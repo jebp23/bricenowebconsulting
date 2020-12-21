@@ -6,7 +6,7 @@ const app = express();
 //Body Parser/Cors-Headers Middleware
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{

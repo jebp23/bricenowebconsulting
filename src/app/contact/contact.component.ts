@@ -11,10 +11,22 @@ export class ContactComponent implements OnInit {
 
   constructor(public _MessageService: MessageService) {}
 
-  submitForm(form) {
+  submitForm() {
+    let form = this.formTemplate.value;
+    
+    let reqObj = {
+      firstName: form.firstName,
+		  lastName: form.lastName,
+		  phone: form.number,
+		  email: form.string,		
+		  companName: form.string
+    }
+
     if(this.formTemplate.valid){
-      this._MessageService.sendMessage(form).subscribe()
-      console.log(form);
+      this._MessageService.sendMessage(reqObj).subscribe(data => {
+        console.log(data);
+      });
+    
       alert("Thank you for contacting us!!! We will reply very soon.")
       this.formTemplate.reset();
     }
