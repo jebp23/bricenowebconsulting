@@ -112,7 +112,7 @@ app.post('/form', (req, res) => {
         console.log(err)
         else
         console.log(info);
-        res.status(200).send().json({message: 'successfuly sent!'});
+        res.status(200).end();
     });
 });
 
