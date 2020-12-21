@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 
 export class MessageService {
-  private formUrl = 'contact/form';
+  private formUrl = '/form';
   
   constructor(private _http: HttpClient) { }
   
