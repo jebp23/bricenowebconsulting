@@ -18,13 +18,12 @@ app.use((req, res, next) => {
 //Angular project file routing
 var distDir = __dirname + "/dist";
 app.use(express.static(distDir)); 
-app.all('*', (req, res) => {
-    res.status(200).sendFile(distDir+'/index.html')
-});
+
 
 //Endpoint
 app.post('/form', (req, res) => {
     response = emailConfig(req.body);
+    console.log
     res.status(200).send(response);
 })
 
