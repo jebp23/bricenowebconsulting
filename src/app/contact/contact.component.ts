@@ -10,31 +10,14 @@ import { Email } from'../models/email';
 export class ContactComponent implements OnInit {
   @ViewChild('form') formTemplate: any;
 
-  public email: Email;  
+  constructor(public _MessageService: MessageService) {}
 
-  constructor(public _MessageService: MessageService) {
-    this.email = new Email('','','','','');
-  }
-
-  submitForm(form) {
-    this.email = form;
-    this._MessageService.sendMessage(this.email).subscribe(
-			response => {
-				if(response.project){
-          form.reset();
-        }
-      });
-
-
-
-
-
-    /*
+  submitForm(form: Email) {
     if(this.formTemplate.valid){
-      this._MessageService.sendMessage(this.email).subscribe();    
+      this._MessageService.sendMessage(form).subscribe();    
       alert("Thank you for contacting us!!! We will reply very soon.")
       this.formTemplate.reset();
-    }*/
+    }
   }
 
   ngOnInit(): void {

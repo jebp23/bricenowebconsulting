@@ -4,7 +4,6 @@ const emailConfig = require('./emailConfig');
 const app = express();
 
 //Body Parser/Cors-Headers Middleware
-//app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
