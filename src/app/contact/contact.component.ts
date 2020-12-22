@@ -17,6 +17,7 @@ export class ContactComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.email = form;
     this._MessageService.sendMessage(this.email).subscribe(
 			response => {
 				if(response.project){
