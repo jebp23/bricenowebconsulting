@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from '../service/message.service';
-import { Email } from'../models/email';
 
 @Component({
   selector: 'app-contact',
@@ -12,9 +11,10 @@ export class ContactComponent implements OnInit {
 
   constructor(public _MessageService: MessageService) {}
 
-  submitForm(form: Email) {
+  submitForm(form) {
     if(this.formTemplate.valid){
-      this._MessageService.sendMessage(form).subscribe();    
+      this._MessageService.sendMessage(form).subscribe();   
+      console.log(form); 
       alert("Thank you for contacting us!!! We will reply very soon.")
       this.formTemplate.reset();
     }
