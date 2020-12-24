@@ -1,6 +1,4 @@
 const express = require('express');
-const nodeMailer = require('nodemailer');
-const emailConfig = require('./emailConfig');
 const app = express();
 
 //Body Parser/Cors-Headers Middleware
@@ -18,14 +16,9 @@ app.use((req, res, next) => {
 var distDir = __dirname + "/dist";
 app.use(express.static(distDir)); 
 
-
-//Endpoint
-app.post('/form', (req, res) => {
-    response = emailConfig(req.body);
-    console.log
-    res.status(200).send(response);
-})
-
+//Endpoint routes
+var apiRoutes = require('./Backend/apiRouter');
+app.use('/api', apiRoutes);
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{
