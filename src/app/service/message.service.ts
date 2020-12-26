@@ -12,7 +12,7 @@ export class MessageService {
     this.formUrl = 'https://bricenowebconsulting.herokuapp.com/'
   }
   
-  sendMessage(body: Email): Observable<any> {
+  sendMessage(body: Any): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type','application/json')
     return this._http.post(this.formUrl+'api/form', body, {headers});
   }
