@@ -14,6 +14,6 @@ export class MessageService {
   
   sendMessage(body: Email): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type','application/json')
-    return this._http.post(this.formUrl+'api/form', JSON.stringify(body), {headers});
+    return this._http.post(this.formUrl+'api/form', body, {headers});
   }
 }
