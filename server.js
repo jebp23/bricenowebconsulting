@@ -18,7 +18,7 @@ app.use(express.static(distDir));
 
 //Endpoint routes
 var apiRoutes = require('./Backend/apiRouter');
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{

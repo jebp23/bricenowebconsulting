@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ViewportScroller  } from '@angular/common';
-/*import { slider, fader} from './route-animations';*/
+//import { slider, fader} from './route-animations';
 
 @Component({
   selector: 'app-root',
