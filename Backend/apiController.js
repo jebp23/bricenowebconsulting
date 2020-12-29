@@ -3,7 +3,8 @@ var controller = {
   
 	sendEmail: function(req, res){
 
-        
+        var formResponse = req.body;
+
         var transporter = nodemailer.createTransport({
             service: 'AOL',
             auth: {
@@ -14,8 +15,8 @@ var controller = {
 
         const mailOptions = {
             from: 'Briceño Web Consulting <jebp2389@gmail.com>',
-            to: req.body.email,
-            subject: `Hello ${req.body.firstName}, we're your future associates!`,
+            to: formResponse.email,
+            subject: `Hello ${formResponse.firstName}, we're your future associates!`,
             html: `
             <head>
                 <meta charset="utf-8">
