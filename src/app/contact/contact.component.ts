@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MessageService } from '../service/message.service';
+import { NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { Observable } from 'rxjs';
+//import { MessageService } from '../service/message.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,16 +12,29 @@ import { MessageService } from '../service/message.service';
 export class ContactComponent implements OnInit {
   @ViewChild('form') formTemplate: any;
 
-  constructor(public _MessageService: MessageService) {}
+  constructor(private http: HttpClient) {}
 
-  submitForm(form) {
-    if(this.formTemplate.valid){
-      this._MessageService.sendMessage(form).subscribe();   
+  submitForm(form: NgForm) {
+    if(form.valid){         
       console.log(form); 
-      alert("Thank you for contacting us!!! We will reply very soon.")
-      this.formTemplate.reset();
+      const value = form.value;
+      const firstName = value.firstName;
+      const email = value.email;
+
+      let formRequest = { firstName, email};
+      
+      let headers = new HttpHeaders().set('Content-Type','application/json');
+      alert("Thank you for contacting us!!! We will reply very soon.");
+      form.reset();
+      return this.http.post('/api/form', formRequest, {headers}).subscribe();      
     }
   }
+
+  /*
+
+    this.db.list('/messages').push(formRequest);
+    form.reset();
+  }*/
 
   ngOnInit(): void {
   }
