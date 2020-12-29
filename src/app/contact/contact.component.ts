@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-//import { Observable } from 'rxjs';
 //import { MessageService } from '../service/message.service';
 
 @Component({
@@ -24,7 +23,7 @@ export class ContactComponent implements OnInit {
       let headers = new HttpHeaders().set('Content-Type','application/json');
       alert("Thank you for contacting us!!! We will reply very soon.");
       form.reset();
-      return this.http.post('/api/form', formRequest, {headers}).subscribe();      
+      return this.http.post('https://bricenowebconsulting.herokuapp.com/api/form', formRequest, {headers}).subscribe();      
     }
   }
 
