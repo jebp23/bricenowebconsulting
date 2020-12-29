@@ -22,7 +22,7 @@ app.use('/api', apiRoutes);*/
 
 app.post("/api/form", function(req, res) {
     
-    var formRequest = req.body;
+    var formRequest = req;
 
     var transporter = nodemailer.createTransport({
         service: 'AOL',
