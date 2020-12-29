@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import
 //import { Observable } from 'rxjs';
 //import { MessageService } from '../service/message.service';
 
@@ -11,8 +10,6 @@ import
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  @ViewChild('form') formTemplate: any;
-
   constructor(private http: HttpClient) {}
 
   submitForm(form: NgForm) {
