@@ -12,7 +12,7 @@ export class MessageService {
 
   }
   
-  sendMessage(body): Observable<any>{
+  sendMessage(body: Email): Observable<any>{
     let headers = new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.formUrl, body, {headers});
   }
