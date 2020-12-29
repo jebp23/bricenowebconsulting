@@ -20,10 +20,10 @@ export class ContactComponent implements OnInit {
 
       let formRequest = { firstName, email};
       
-      //let headers = new HttpHeaders().set('Content-Type','application/json');
+      let headers = new HttpHeaders().set('Content-Type','application/json');
       alert("Thank you for contacting us!!! We will reply very soon.");
       form.reset();
-      return this.http.post('https://bricenowebconsulting.herokuapp.com/api/form', formRequest/*, {headers}*/).subscribe();      
+      return this.http.post('https://bricenowebconsulting.herokuapp.com/api/form', formRequest, {headers}).subscribe();      
     }
   }
 
