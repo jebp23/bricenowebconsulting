@@ -6,14 +6,15 @@ import { Observable } from 'rxjs';
 @Injectable()
 
 export class MessageService {
-  //public formUrl:string;
+  public formUrl:string;
   
   constructor(private _http: HttpClient) {
-    //this.formUrl = process.env.PORT;
+    this.formUrl = 'https://bricenowebconsulting.herokuapp.com/';
   }
   
-  sendMessage(body): Observable<any> {
+  sendMessage(params): Observable<any> {
+    let body = JSON.stringify(params);
     let headers = new HttpHeaders().set('Content-Type','application/json')
-    return this._http.post<any>(/*this.formUrl+*/'api/form', body, {headers});
+    return this._http.post<any>(this.formUrl+'api/form', body, {headers});
   }
 }
