@@ -14,6 +14,6 @@ export class MessageService {
   
   sendMessage(body) {
     let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.formUrl, body, {headers});
+    return this._http.post(this.formUrl, /*JSON.stringify(body)*/body, {headers});
   }
 }
