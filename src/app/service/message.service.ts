@@ -9,10 +9,11 @@ export class MessageService {
   private formUrl = '/api/form';
   
   constructor(private _http: HttpClient) {
-    
+
   }
   
   sendMessage(body) {
-    return this._http.post(this.formUrl, body.json());
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this._http.post(this.formUrl, body, {headers});
   }
 }
