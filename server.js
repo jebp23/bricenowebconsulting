@@ -28,7 +28,7 @@ app.post("/api/form", function(req, res) {
     var transporter = nodemailer.createTransport({
         auth: {
             user: 'jebp23@hotmail.com',
-            pass: 'Cuentajesus2020'
+            pass: '*********'
         }
     });
 
