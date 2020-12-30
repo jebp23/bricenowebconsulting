@@ -130,3 +130,16 @@ app.post("/formApi", function(req, res) {
 app.listen(process.env.PORT || 8080, ()=>{
     console.log('Server started...');
 });
+
+
+/* 
+XHRPOSThttps://bricenowebconsulting.herokuapp.com/formApi
+[HTTP/1.1 500 Internal Server Error 1300ms]
+
+    	
+    code	"EAUTH"
+    response	"535 5.7.0 (#AUTH005) Too many bad auth attempts."
+    responseCode	535
+    command	"AUTH PLAIN"
+
+*/
