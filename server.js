@@ -25,7 +25,7 @@ app.post("/api/form", function(req, res) {
     var formRequest = req;
 
     var transporter = nodemailer.createTransport({
-        service: 'AOL',
+        service: 'aol',
         auth: {
             user: 'bricenowebconsulting@aol.com',
             pass: '2020baires'
