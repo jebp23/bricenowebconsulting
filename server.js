@@ -1,11 +1,12 @@
 const express = require('express');
+const nodemailer = require("nodemailer");
 const app = express();
 
 //Body Parser/Cors-Headers Middleware
 app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://bricenowebconsulting.herokuapp.com');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
@@ -22,7 +23,7 @@ app.use('/api', apiRoutes);*/
 
 app.post("/api/form", function(req, res) {
     
-    var formRequest = req;
+    var formRequest = req.body;
 
     var transporter = nodemailer.createTransport({
         service: 'aol',
