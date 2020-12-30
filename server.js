@@ -114,13 +114,17 @@ app.post("/formApi", function(req, res) {
     };
 
     transporter.sendMail(mailOptions, function (err, info) {
-        if (err) console.log(err)
- 
-        else console.log(info)
+        if(err) return res.status(500).send(err);
+        
+        else if(!info) return res.status(404).send(err);
+        
+        else return res.status(200).send(info);
     });
 
-    res.status(200).send();
 });
+
+
+
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{
