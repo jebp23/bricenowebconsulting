@@ -4,7 +4,7 @@ const app = express();
 
 //Body Parser/Cors-Headers Middleware
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://bricenowebconsulting.herokuapp.com');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
@@ -115,7 +115,7 @@ app.post("/api/form", function(req, res) {
     };
 
     transporter.sendMail(mailOptions, function (err, info) {
-        if(err) return res.status(500).send({message: 'There was an error while sending the Email'});
+        if(err) return res.status(500).send(err);
         
         else if(!info) return res.status(404).send({message: 'The email info could not be saved'});
         
