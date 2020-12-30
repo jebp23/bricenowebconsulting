@@ -116,8 +116,10 @@ app.post("/formApi", function(req, res) {
     transporter.sendMail(mailOptions, function (err, info) {
         if (err) console.log(err)
  
-        else res.status(200).send(info);
+        else console.log(info)
     });
+
+    res.status(200).send();
 });
 
 //Server
