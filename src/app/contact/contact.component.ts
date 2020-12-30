@@ -15,10 +15,10 @@ export class ContactComponent implements OnInit {
 
   submitForm(form){
     if(this.formTemplate.valid){      
-      alert("Thank you for contacting us!!! We will reply very soon.")
-      this._MessageService.sendMessage(form).subscribe(res => {
-        console.log(res);
+      this._MessageService.sendMessage(form).subscribe(() => {
+        alert("Thank you for contacting us!!! We will reply very soon.")
       })
+    
       this.formTemplate.reset();  
     }
   }

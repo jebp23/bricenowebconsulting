@@ -1,17 +1,19 @@
 const express = require('express');
+const cors = require('cors');
 const nodemailer = require("nodemailer");
 const app = express();
 
 //Body Parser/Cors-Headers Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+/*app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
-});
+});*/
 
 //Angular project file routing
 var distDir = __dirname + "/dist";
@@ -21,11 +23,10 @@ app.use(express.static(distDir));
 var apiRoutes = require('./Backend/apiRouter');
 app.use('/api', apiRoutes);*/
 
-app.post("/api/form", function(req, res) {
+app.post("/formApi", function(req, res) {
     
-    var formRequest = req.body;
-
     var transporter = nodemailer.createTransport({
+        service: 'gmail',
         auth: {
             user: 'jebp2389@gmail.com',
             pass: '20314037'
@@ -33,9 +34,10 @@ app.post("/api/form", function(req, res) {
     });
 
     const mailOptions = {
+        
         from: 'Briceño Web Consulting <jebp2389@gmail.com>',
-        to: formRequest.email,
-        subject: `Hello ${formRequest.firstName}, we're your future associates!`,
+        to: req.body.email,
+        subject: `Hello ${req.body.firstName}, we're your future associates!`,
         html: `
         <head>
             <meta charset="utf-8">
@@ -114,11 +116,9 @@ app.post("/api/form", function(req, res) {
     };
 
     transporter.sendMail(mailOptions, function (err, info) {
-        if(err) return res.status(500).send(err);
-        
-        else if(!info) return res.status(404).send({message: 'The email info could not be saved'});
-        
-        else return res.status(200).send(info);
+        if (err) console.log(err)
+ 
+        else res.status(200).send(info);
     });
 });
 
@@ -126,4 +126,3 @@ app.post("/api/form", function(req, res) {
 app.listen(process.env.PORT || 8080, ()=>{
     console.log('Server started...');
 });
-
