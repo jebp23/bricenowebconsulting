@@ -35,7 +35,7 @@ app.post("/api/form", function(req, res) {
 
     const mailOptions = {
         from: 'Briceño Web Consulting <jebp2389@gmail.com>',
-        to: `${formRequest.email}`,
+        to: formRequest.email,
         subject: `Hello ${formRequest.firstName}, we're your future associates!`,
         html: `
         <head>

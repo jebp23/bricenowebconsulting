@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-//import { MessageService } from '../service/message.service';
+import { MessageService } from '../service/message.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -9,24 +9,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  @ViewChild('form') formTemplate: any;
 
-  submitForm(form: NgForm) {
-    if(form.valid){         
-      console.log(form); 
-      
-      //let headers = new HttpHeaders().set('Content-Type','application/json');
-      alert("Thank you for contacting us!!! We will reply very soon.");
-      form.reset();
-      return this.http.post('https://bricenowebconsulting.herokuapp.com/api/form', form/*, {headers}*/).subscribe();      
+
+  constructor(private http: HttpClient, public _MessageService: MessageService) {}
+
+  submitForm(form){
+    if(this.formTemplate.valid){
+      this._MessageService.sendMessage(form).subscribe()
+      alert("Thank you for contacting us!!! We will reply very soon.")
+      this.formTemplate.reset(res => {
+        console.log(res);
+      });
     }
   }
-
-  /*
-
-    this.db.list('/messages').push(formRequest);
-    form.reset();
-  }*/
 
   ngOnInit(): void {
   }
