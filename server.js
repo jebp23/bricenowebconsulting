@@ -24,10 +24,10 @@ app.use('/api', apiRoutes);*/
 app.post("/formApi", function(req, res) {
     
     var transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'aol',
         auth: {
-            user: 'jebp2389@gmail.com',
-            pass: '20314037'
+            user: 'bricenowebconsulting@aol.com',
+            pass: '2020baires'
         }
     });
 
