@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
 
@@ -12,15 +11,15 @@ export class ContactComponent implements OnInit {
   @ViewChild('form') formTemplate: any;
 
 
-  constructor(private http: HttpClient, public _MessageService: MessageService) {}
+  constructor(public _MessageService: MessageService) {}
 
   submitForm(form){
-    if(this.formTemplate.valid){
-      this._MessageService.sendMessage(form).subscribe()
+    if(this.formTemplate.valid){      
       alert("Thank you for contacting us!!! We will reply very soon.")
-      this.formTemplate.reset(res => {
+      this._MessageService.sendMessage(form).subscribe(res => {
         console.log(res);
-      });
+      })
+      this.formTemplate.reset();  
     }
   }
 

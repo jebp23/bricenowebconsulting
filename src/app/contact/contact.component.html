@@ -6,7 +6,7 @@
 
 <section id="formSection">
     <!--It's important to especify the ".value" of the form on submit-->
-    <form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
         <div class="formControl">
             <label>First Name*</label><br>
             <!-- Using "#" in a tag can help you create a 'template variable'. In the example below, "ngModel" becomes the value of the variable.-->
