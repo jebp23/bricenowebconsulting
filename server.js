@@ -17,6 +17,11 @@ app.use(express.static(distDir));
 
 //Endpoint routes
 app.use(require('./emailConfig'));
+app.post('/formApi', (req, res) => {
+    sendMail(req.body);
+    res.status(200).send(r)
+     
+});
 
 //Server
 app.listen(process.env.PORT || 8080, ()=>{

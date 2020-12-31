@@ -1,9 +1,8 @@
-const express = require('express');
+
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const router = express.Router();
 
-router.post('/formApi', (req, res) => {
+module.exports = (req) => {
     
     const CLIENT_ID='317858752894-jbje31oh7pc30l3al6kl129k2mnq279k.apps.googleusercontent.com';
     const CLIENT_SECRET='LF0qv1-FwH1PXq6o9eoprp1A';
@@ -13,7 +12,7 @@ router.post('/formApi', (req, res) => {
     const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
     oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
 
-    async function sendMail(){
+    function sendMail(){
         try{
             const accessToken = await oAuth2Client.getAccessToken();
             const transporter = nodemailer.createTransport({
@@ -31,8 +30,8 @@ router.post('/formApi', (req, res) => {
             const mailOptions = {
         
                 from: 'Briceño Web Consulting <jebp2389@gmail.com>',
-                to: req.body.email,
-                subject: `Hello ${req.body.firstName}, we're your future associates!`,
+                to: req.email,
+                subject: `Hello ${req.firstName}, we're your future associates!`,
                 html: `
                 <head>
                     <meta charset="utf-8">
@@ -117,10 +116,4 @@ router.post('/formApi', (req, res) => {
             console.log(err);
         }
     }
-
-    sendMail()
-        .then(() => res.status(200).send())
-        .catch((error) => console.log(error));
-})
-
-module.exports = router;
+}
