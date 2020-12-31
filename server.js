@@ -31,17 +31,17 @@ app.post("/formApi", function(req, res) {
     oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
 
     const accessToken = oAuth2Client.getAccessToken();
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                type:'OAuth2',
-                user: 'jebp2389@gmail.com',
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
-                accessToken: accessToken            
-            }
-        });    
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            type:'OAuth2',
+            user: 'jebp2389@gmail.com',
+            clientId: CLIENT_ID,
+            clientSecret: CLIENT_SECRET,
+            refreshToken: REFRESH_TOKEN,
+            accessToken: accessToken            
+        }
+    });    
 
     const mailOptions = {
         
