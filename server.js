@@ -23,24 +23,13 @@ app.use('/api', apiRoutes);*/
 
 app.post("/formApi", function(req, res) {
     
-    /*var transporter = nodemailer.createTransport({
+    var transporter = nodemailer.createTransport({
         service: 'aol',
         auth: {
             user: 'bricenowebconsulting@aol.com',
             pass: '2020baires'
         }
-    });*/
-    
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        host: 'smtp.gmail.com',
-        secure: 'true',
-        port: '465',
-        auth: {
-          user: 'jebp2389@gmail.com',
-          pass: '20314037'
-        }
-      });
+    });
 
     const mailOptions = {
         
