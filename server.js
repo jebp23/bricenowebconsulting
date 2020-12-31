@@ -1,6 +1,6 @@
 const express = require('express');
 const nodemailer = require("nodemailer");
-const app = express();
+const { google } = require('googleapis');
 
 //Body Parser/Cors-Headers Middleware
 app.use(express.json());
@@ -22,12 +22,26 @@ var apiRoutes = require('./Backend/apiRouter');
 app.use('/api', apiRoutes);*/
 
 app.post("/formApi", function(req, res) {
+
+    const CLIENT_ID='317858752894-jbje31oh7pc30l3al6kl129k2mnq279k.apps.googleusercontent.com';
+    const CLIENT_SECRET='LF0qv1-FwH1PXq6o9eoprp1A';
+    const REDIRECT_URI='https://developers.google.com/oauthplayground';
+    const REFRESH_TOKEN='1//04yHt6RuEegGACgYIARAAGAQSNwF-L9Ir5qAF72bljOpBFlEvnDOHI_ZeUItjIKBfjfplG9pHJSxcUZyhbAdDjFq_RxrLIu1RR2E';
+    
+    const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+    oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
+    const accessToken = oAuth2Client.getAccessToken();
     
     var transporter = nodemailer.createTransport({
-        service: 'aol',
+        service: 'gmail',
         auth: {
-            user: 'bricenowebconsulting@aol.com',
-            pass: '2020baires'
+            type:'OAuth2',
+            user: 'jebp2389@gmail.com',
+            clientId: CLIENT_ID,
+            clientSecret: CLIENT_SECRET,
+            refreshToken: REFRESH_TOKEN,
+            accessToken: accessToken
+            
         }
     });
 
