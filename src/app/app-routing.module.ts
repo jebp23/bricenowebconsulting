@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent, data: { animation: 'isLeft' } },
   { path: 'contact', component: ContactComponent},
-  { path: 'about', component: AboutComponent, data: { animation: 'isRight' }  }
+  { path: 'about', component: AboutComponent, data: { animation: 'isRight' } },
+  { path: '*', component: HomeComponent },
 ];
 
 @NgModule({
