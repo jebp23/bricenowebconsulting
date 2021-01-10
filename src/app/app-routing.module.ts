@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { animation: 'isLeft' } },
   { path: 'contact', component: ContactComponent},
   { path: 'about', component: AboutComponent, data: { animation: 'isRight' } },
-  { path: '*', component: HomeComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
