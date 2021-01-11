@@ -35,7 +35,7 @@ app.post("/formApi", function(req, res) {
         service: 'gmail',
         auth: {
             type:'OAuth2',
-            user: 'jebp2389@gmail.com',
+            user: '*****@gmail.com',
             clientId: CLIENT_ID,
             clientSecret: CLIENT_SECRET,
             refreshToken: REFRESH_TOKEN,
